@@ -1,6 +1,7 @@
 "use client"
 
 import { useRouter } from "next/navigation";
+import { Suspense } from "react";
 import { useSigninCheck } from "reactfire";
 
 function AuthWrapper({ children }) {
@@ -13,10 +14,17 @@ function AuthWrapper({ children }) {
   return children;
 };
 
+function Loading() { 
+  return <span>Loading...</span> 
+}
+
+
 export default function BumpUnauthorised({ children }) {
   return (
+    <Suspense fallback={<Loading/>}>
       <AuthWrapper>
         {children}
       </AuthWrapper>
+    </Suspense>
   );
 };

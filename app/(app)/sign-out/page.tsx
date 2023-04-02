@@ -2,10 +2,10 @@
 
 import { useAuth } from 'reactfire';
 
-export default async function Signout() {
+export default function Signout() {
   const auth = useAuth();
   
-  await auth.signOut();
+  auth.signOut();
 
   return undefined;
 }
