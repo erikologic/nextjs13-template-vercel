@@ -35,7 +35,7 @@ test('new users can sign up / sign in', async ({ page }, testInfo) => {
 	await page.goto('/');
 	await expect(page.getByRole('heading', { name: 'ZenFocus' })).toBeVisible();
 
-	// try login with not existing credentials
+	// try login with fake credentials
 	await page.getByRole('link', { name: 'I already have an account' }).click();
 	await login(page, myEmail, myPassword);
 	await expect(page.getByText('Invalid email or password')).toBeVisible();
